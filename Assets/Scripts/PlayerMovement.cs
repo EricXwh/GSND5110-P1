@@ -25,6 +25,15 @@ public class PlayerMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        if(Input.GetKey(KeyCode.LeftShift)){
+            speed = 2f;
+            anim.SetBool("isWalking",true);
+        }
+        else{
+            speed = 6f;
+            anim.SetBool("isWalking",false);
+        }
+
         if(direction.magnitude >= 0.1f){
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -37,5 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
+
+       
     }      
 }
