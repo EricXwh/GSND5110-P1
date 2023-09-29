@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public Animator anim;
+    private bool isJumping = false;
+
+    public float jumpHeight = 1.8f; 
+    public float gravity = -10f;
+    private bool isGrounded; 
+    private Vector3 velocity; 
 
     void Start()
     {
@@ -20,7 +26,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
+
+        float rayLength = 0.15f; 
+        Vector3 rayStart = transform.position + Vector3.up * 0.1f; 
+        isGrounded = Physics.Raycast(rayStart, Vector3.down, rayLength);
+        Debug.DrawRay(rayStart, Vector3.down * rayLength, Color.red); 
+        
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = 0f;
+        }
           
+        
+        
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -40,13 +60,32 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, angle,0f);
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle,0f)* Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            anim.SetBool("isMoving", true);
+            if(!isJumping){
+               anim.SetBool("isMoving", true); 
+            }
+            
         }
         else
         {
             anim.SetBool("isMoving", false);
         }
 
+        if (Input.GetButtonDown("Jump") && isGrounded && !anim.GetCurrentAnimatorStateInfo(0).IsName("JUMP00B"))
+        {
+            Debug.Log("jump");
+            isJumping = true;
+            anim.SetBool("isJump",true);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
+        }
+        else if (isGrounded){
+            isJumping = false;
+            anim.SetBool("isJump",false);
+        }
+        
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+    
        
     }      
 }
