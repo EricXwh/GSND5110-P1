@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         float rayLength = 0.15f; 
         Vector3 rayStart = transform.position + Vector3.up * 0.1f; 
         isGrounded = Physics.Raycast(rayStart, Vector3.down, rayLength);
-        //Debug.DrawRay(rayStart, Vector3.down * rayLength, Color.red); 
+        Debug.DrawRay(rayStart, Vector3.down * rayLength, Color.red); 
         
 
         if (isGrounded && velocity.y < 0)
