@@ -15,6 +15,9 @@ public class Teleport : MonoBehaviour
     private bool isInRange = false; 
     private bool isBack = false;
 
+    public GameObject quest1;
+    public GameObject quest2;
+
     void Start()
     {
         interactionText.gameObject.SetActive(false);
@@ -35,6 +38,15 @@ public class Teleport : MonoBehaviour
             else{
                 playerTransform.position = teleportBack;
                 isBack = false;
+            }
+            Guide disappearQ1 = quest1.GetComponent<Guide>();
+            if (disappearQ1 != null)
+            {
+                disappearQ1.MakeDisappear();
+                Guide ActiveQ2 = quest2.GetComponent<Guide>();
+                if (ActiveQ2 != null){
+                    ActiveQ2.MakeAppear();
+                }
             }
             player.SetActive(true);
         }
