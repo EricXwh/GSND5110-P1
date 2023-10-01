@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class Teleport : MonoBehaviour
 {
     public GameObject player;
     public Transform playerTransform;  
+    public TMP_Text interactionText;
     private Vector3 teleportLocation = new Vector3(28.121f, 0f, 58.96012f);  
     private Vector3 teleportBack = new Vector3(29.858f, 0f, 58.96012f);
     private bool isInRange = false; 
     private bool isBack = false;
+
+    void Start()
+    {
+        interactionText.gameObject.SetActive(false);
+    }
 
     void Update()
     {
@@ -37,6 +46,7 @@ public class Teleport : MonoBehaviour
         if (other.CompareTag("Player"))  
         {
             isInRange = true;
+            interactionText.gameObject.SetActive(true);
         }
     }
 
@@ -46,6 +56,7 @@ public class Teleport : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInRange = false;
+            interactionText.gameObject.SetActive(false); 
         }
     }
 }
