@@ -19723,8 +19723,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1163062076}
   lines:
-  - Finally finished the work. It's already very late now.
-  - I wonder if my things will be scattered everywhere by them.
+  - Finally finished the work. It's very late now.
+  - I hope they don't leave my stuff everywhere
   textSpeed: 0.1
 --- !u!114 &1551894623
 MonoBehaviour:
