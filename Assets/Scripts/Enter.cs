@@ -11,7 +11,9 @@ public class Enter : MonoBehaviour
 public GameObject player;
     public Transform playerTransform;  
     public TMP_Text interactionText;
+    [SerializeField]
     private Vector3 teleportLocation = new Vector3(35.8f, 0f, 58.96012f);  
+    [SerializeField]
     private Vector3 teleportBack = new Vector3(33.34f, 0f, 58.96012f);
     private bool isInRange = false; 
     private bool isBack = false;
