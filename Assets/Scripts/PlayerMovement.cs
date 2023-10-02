@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
  
     public CharacterController controller;
     public Transform cam;
-    public float speed = 6f;
+    public float speed = 5f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public Animator anim;
@@ -24,11 +24,12 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -10f;
     private bool isGrounded; 
     private Vector3 velocity; 
-    private bool isFirstPerson = false;
+    private bool isFirstPerson = true;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        SetPlayerVisibility(false);
     }
 
     // Update is called once per frame
