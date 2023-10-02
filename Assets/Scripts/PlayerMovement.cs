@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,10 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     private bool isJumping = false;
 
+    public CinemachineFreeLook thirdPersonCam;
+    public CinemachineVirtualCamera firstPersonCam;
+    public GameObject characterModel;
+    public SkinnedMeshRenderer[] playerSkinnedRenderers;
+    public MeshRenderer[] playerRenderers;
+
     public float jumpHeight = 1.8f; 
     public float gravity = -10f;
     private bool isGrounded; 
     private Vector3 velocity; 
+    private bool isFirstPerson = false;
 
     void Start()
     {
@@ -81,11 +89,49 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
             anim.SetBool("isJump",false);
         }
+         if (Input.GetKeyDown(KeyCode.V))
+        {
+            SwitchCameraView();
+        }
         
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     
        
+    }
+    void SwitchCameraView()
+    {
+        if (!isFirstPerson)
+        {
+            thirdPersonCam.Priority = 10; 
+            firstPersonCam.Priority = 20; 
+            
+            Invoke("HidePlayer", 1.5f);
+            isFirstPerson = true;
+            
+        }
+        else
+        {
+            thirdPersonCam.Priority = 20;
+            firstPersonCam.Priority = 10;
+            SetPlayerVisibility(true);
+            isFirstPerson = false;
+        }
+    }
+    private void SetPlayerVisibility(bool isVisible)
+    {
+        foreach (SkinnedMeshRenderer renderer in playerSkinnedRenderers)
+            {
+                renderer.enabled = isVisible;
+            }
+            foreach (MeshRenderer renderer in playerRenderers)
+            {
+                renderer.enabled = isVisible;
+            }
     }      
+    private void HidePlayer()
+    {
+        SetPlayerVisibility(false);
+    }
 }
