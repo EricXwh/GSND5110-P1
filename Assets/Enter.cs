@@ -5,18 +5,17 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class Teleport : MonoBehaviour
+
+public class Enter : MonoBehaviour
 {
-    public GameObject player;
+public GameObject player;
     public Transform playerTransform;  
     public TMP_Text interactionText;
-    private Vector3 teleportLocation = new Vector3(28.121f, 0f, 58.96012f);  
-    private Vector3 teleportBack = new Vector3(29.858f, 0f, 58.96012f);
+    private Vector3 teleportLocation = new Vector3(35.8f, 0f, 58.96012f);  
+    private Vector3 teleportBack = new Vector3(33.34f, 0f, 58.96012f);
     private bool isInRange = false; 
     private bool isBack = false;
 
-    public GameObject quest1;
-    public GameObject quest2;
 
     void Start()
     {
@@ -36,15 +35,7 @@ public class Teleport : MonoBehaviour
                 playerTransform.position = teleportBack;
                 isBack = false;
             }
-            Guide disappearQ1 = quest1.GetComponent<Guide>();
-            if (disappearQ1 != null)
-            {
-                disappearQ1.MakeDisappear();
-                Guide ActiveQ2 = quest2.GetComponent<Guide>();
-                if (ActiveQ2 != null){
-                    ActiveQ2.MakeAppear();
-                }
-            }
+            
             player.SetActive(true);
         }
     }
