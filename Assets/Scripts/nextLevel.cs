@@ -26,7 +26,7 @@ public class nextLevel : MonoBehaviour
     {
         if(isPlayerNearby && Input.GetKeyDown(KeyCode.E) )
         {
-            if(PlayerMovement.count >= 5){
+            if(PlayerMovement.count == 5 || PlayerMovement.count == 11){
                 LoadNextScene();
             }
             else{

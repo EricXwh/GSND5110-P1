@@ -29,6 +29,7 @@ public class interact : MonoBehaviour
             Debug.Log("kkk");
             interactionText.gameObject.SetActive(false);
             Destroy(gameObject);
+            PlayerMovement.count += 1;
         }
     }
 
