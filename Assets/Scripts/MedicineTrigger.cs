@@ -23,7 +23,7 @@ public class MedicineTrigger : MonoBehaviour
             dialogueSystem.StartDialogue();
             guide.SetActive(false);
             isPickup = true;
-            PlayerMovement.medicine = true;
+            PlayerMovement.count += 1;
         }
     }
 

@@ -15,7 +15,7 @@ public class nextLevel : MonoBehaviour
     {
         if(isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            if(PlayerMovement.diary && PlayerMovement.medicine){
+            if(PlayerMovement.count >= 10){
                 LoadNextScene();
             }
             else{

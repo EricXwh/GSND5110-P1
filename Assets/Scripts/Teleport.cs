@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
     public GameObject player;
+    public GameObject quests;
     public Transform playerTransform;  
     public TMP_Text interactionText;
-    private Vector3 teleportLocation = new Vector3(28.121f, 0f, 58.96012f);  
+    [SerializeField]
+    private Vector3 teleportLocation = new Vector3(28.121f, 0f, 58.96012f); 
+    [SerializeField]
     private Vector3 teleportBack = new Vector3(29.858f, 0f, 58.96012f);
     private bool isInRange = false; 
     private bool isBack = false;
@@ -44,7 +47,12 @@ public class Teleport : MonoBehaviour
                 if (ActiveQ2 != null){
                     ActiveQ2.MakeAppear();
                 }
+                if(SceneManager.GetActiveScene().name == "Scene1"){
+                quests.SetActive(true);
             }
+                
+            }
+            
             player.SetActive(true);
         }
     }

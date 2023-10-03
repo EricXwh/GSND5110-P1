@@ -23,7 +23,7 @@ public class bookTrigger : MonoBehaviour
             dialogueSystem.StartDialogue();
             guide.SetActive(false);
             isPickup = true;
-            PlayerMovement.diary = true;
+            PlayerMovement.count += 1;
         }
     }
 

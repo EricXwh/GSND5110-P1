@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float turnSmoothVelocity;
     public Animator anim;
     private bool isJumping = false;
-    public static bool diary = false;
-    public static bool medicine = false;
+    public static int count = 0;
+
     
 
     public CinemachineFreeLook thirdPersonCam;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("M:" + medicine);
+        Debug.Log("Count" + count);
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
 
         float rayLength = 0.15f; 
