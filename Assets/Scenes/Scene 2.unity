@@ -3499,6 +3499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226841716}
   - component: {fileID: 226841717}
+  - component: {fileID: 226841718}
   m_Layer: 0
   m_Name: GameObject (7)
   m_TagString: Untagged
@@ -3540,6 +3541,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.849098, y: 2.2264776, z: 3.8018494}
   m_Center: {x: 24.617584, y: -5.336761, z: -6.414753}
+--- !u!114 &226841718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226841715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a53f17e220ae3c4a86afab469e1e08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &227812211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4433388430019206, guid: 4f9d36e206efd9c408c4487f1d8c65af, type: 3}
@@ -33750,8 +33763,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1652655473}
+  quests: {fileID: 0}
   playerTransform: {fileID: 1833897662}
   interactionText: {fileID: 2090026326}
+  teleportLocation: {x: 28.121, y: 0, z: 58.96012}
+  teleportBack: {x: 29.858, y: 0, z: 58.96012}
   quest1: {fileID: 1300384858}
   quest2: {fileID: 510863200}
 --- !u!65 &1968748833
