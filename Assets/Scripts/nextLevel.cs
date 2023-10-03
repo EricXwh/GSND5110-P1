@@ -10,17 +10,15 @@ public class nextLevel : MonoBehaviour
     private bool isPlayerNearby = false;
     public Dialogue1 dialogueSystem;
     public GameObject MyDialogue;
-    private int isPress = 0;
 
     private void Update()
     {
-        if(isPlayerNearby && Input.GetKeyDown(KeyCode.E)  && isPress < 2)
+        if(isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             if(PlayerMovement.diary && PlayerMovement.medicine){
                 LoadNextScene();
             }
             else{
-                isPress += 1;
                 MyDialogue.SetActive(true);
                 dialogueSystem.ClearWords();
                 dialogueSystem.StartDialogue();

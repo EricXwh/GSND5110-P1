@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        SetPlayerVisibility(false);
+        SetPlayerVisibility(true);
     }
 
     // Update is called once per frame
@@ -115,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
         {
             thirdPersonCam.Priority = 10; 
             firstPersonCam.Priority = 20; 
-            
             Invoke("HidePlayer", 1.5f);
             isFirstPerson = true;
             
