@@ -6,8 +6,11 @@ using TMPro;
 
 public class interact : MonoBehaviour
 {
+    public GameObject player;
     public PostProcessProfile cam;
     public TMP_Text interactionText;
+    public float total_num;
+    public float pitch_adj;
     private bool isInRange = false; 
     private PostProcessVolume vol;
 
@@ -21,7 +24,8 @@ public class interact : MonoBehaviour
     {
         if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
-            cam.GetSetting<ColorGrading>().saturation.value = cam.GetSetting<ColorGrading>().saturation.value - 20;
+            player.GetComponent<AudioSource>().pitch = player.GetComponent<AudioSource>().pitch - (pitch_adj / total_num); ;
+            cam.GetSetting<ColorGrading>().saturation.value = cam.GetSetting<ColorGrading>().saturation.value - (100/total_num);
             Debug.Log("kkk");
             interactionText.gameObject.SetActive(false);
             Destroy(gameObject);
