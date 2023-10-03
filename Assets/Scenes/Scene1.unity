@@ -22844,6 +22844,9 @@ MonoBehaviour:
   lines:
   - '"Finally finished my work today."'
   - '"It''s kinda late. I should take my stuff and go home."'
+  - Use "WASD" to move, and Space to jump. Sometimes, the green dot can guide you
+    in the direction
+  - If you prefer, you can press "V" to switch perspectives
   textSpeed: 0.1
 --- !u!114 &1551894623
 MonoBehaviour:
