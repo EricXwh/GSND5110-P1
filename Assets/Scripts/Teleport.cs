@@ -25,11 +25,8 @@ public class Teleport : MonoBehaviour
 
     void Update()
     {
-       
-        Debug.Log(isInRange);
         if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(playerTransform.position);
             player.SetActive(false);
             if(isBack == false){
                 playerTransform.position = teleportLocation;
@@ -55,6 +52,7 @@ public class Teleport : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("I Entered: " + other.gameObject.name);
         if (other.CompareTag("Player"))  
         {
             isInRange = true;
@@ -65,6 +63,7 @@ public class Teleport : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("I Exited: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
             isInRange = false;
