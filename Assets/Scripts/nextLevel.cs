@@ -10,18 +10,32 @@ public class nextLevel : MonoBehaviour
     private bool isPlayerNearby = false;
     public Dialogue1 dialogueSystem;
     public GameObject MyDialogue;
+    private CanvasGroup canvasGroup;
+
+    private void Awake()
+    {
+        canvasGroup = MyDialogue.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup component not found on MyDialogue!");
+        }
+    }
+
 
     private void Update()
     {
-        if(isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        if(isPlayerNearby && Input.GetKeyDown(KeyCode.E) )
         {
-            if(PlayerMovement.count >= 10){
+            if(PlayerMovement.count >= 5){
                 LoadNextScene();
             }
             else{
-                MyDialogue.SetActive(true);
-                dialogueSystem.ClearWords();
-                dialogueSystem.StartDialogue();
+                if(MyDialogue.activeSelf){
+                    SetCanvasOpacity(1.0f);
+                    dialogueSystem.ClearWords();
+                    dialogueSystem.StartDialogue();
+                }
+                
             }
             
         }
@@ -33,6 +47,7 @@ public class nextLevel : MonoBehaviour
         {
             isPlayerNearby = true;
             interactionText.gameObject.SetActive(true);
+            MyDialogue.SetActive(true);
         }
     }
 
@@ -48,5 +63,13 @@ public class nextLevel : MonoBehaviour
     private void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void SetCanvasOpacity(float opacity)
+    {
+        if (canvasGroup)
+        {
+            canvasGroup.alpha = opacity;
+        }
     }
 }

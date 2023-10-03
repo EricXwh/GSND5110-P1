@@ -10,14 +10,24 @@ public class chairTrigger : MonoBehaviour
     public GameObject guide;
     public TMP_Text interactionText;
     private bool isPlayerInRange = false;
-    private int isPress = 0;
+    private bool isPress = false;
+    private CanvasGroup canvasGroup;
+
+    private void Awake()
+    {
+        canvasGroup = MyDialogue.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup component not found on MyDialogue!");
+        }
+    }
 
     private void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && isPress < 2)
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && !isPress)
         {
-            isPress += 1;
-            MyDialogue.SetActive(true);
+            isPress = true;
+            SetCanvasOpacity(1.0f);
             dialogueSystem.ClearWords();
             dialogueSystem.StartDialogue();
             guide.SetActive(false);
@@ -30,6 +40,7 @@ public class chairTrigger : MonoBehaviour
         {
             isPlayerInRange = true;
             interactionText.gameObject.SetActive(true);
+            MyDialogue.SetActive(true);
         }
     }
 
@@ -39,6 +50,14 @@ public class chairTrigger : MonoBehaviour
         {
             isPlayerInRange = false;
             interactionText.gameObject.SetActive(false);
+        }
+    }
+
+    void SetCanvasOpacity(float opacity)
+    {
+        if (canvasGroup)
+        {
+            canvasGroup.alpha = opacity;
         }
     }
 }

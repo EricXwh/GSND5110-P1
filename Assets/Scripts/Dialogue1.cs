@@ -14,13 +14,14 @@ public class Dialogue1 : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
    // Update is called once per frame
     void Update()
     {
+        gameObject.SetActive(true);
         if(Input.GetMouseButtonDown(0)){
             if(textComponent.text == lines[index]){
                 NextLine();
