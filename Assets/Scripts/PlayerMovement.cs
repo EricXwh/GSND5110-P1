@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     float turnSmoothVelocity;
     public Animator anim;
     private bool isJumping = false;
+    public static bool diary = false;
+    public static bool medicine = false;
+    
 
     public CinemachineFreeLook thirdPersonCam;
     public CinemachineVirtualCamera firstPersonCam;
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("M:" + medicine);
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 0.1f);
 
         float rayLength = 0.15f; 
@@ -77,6 +81,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
+        }
+        if(isFirstPerson){
+            float mouseHorizontal = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up * mouseHorizontal);
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded && !anim.GetCurrentAnimatorStateInfo(0).IsName("JUMP00B"))
