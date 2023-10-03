@@ -6,7 +6,6 @@ using TMPro;
 
 public class interact : MonoBehaviour
 {
-    public GameObject player;
     public PostProcessProfile cam;
     public TMP_Text interactionText;
     private bool isInRange = false; 
