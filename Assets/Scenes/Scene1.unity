@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.094288595, g: 0.1194504, b: 0.15523562, a: 1}
+  m_IndirectSpecularColor: {r: 0.094288744, g: 0.11945031, b: 0.15523598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2462,7 +2462,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182443893}
-  m_LocalRotation: {x: 0.00008125588, y: 0.98942924, z: -0.1450154, w: 0.0005544027}
+  m_LocalRotation: {x: 0.000081253376, y: 0.98942924, z: -0.1450154, w: 0.0005543857}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5141,7 +5141,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405873040}
-  m_LocalRotation: {x: 0.00014151954, y: 0.96791416, z: -0.25128046, w: 0.00054512307}
+  m_LocalRotation: {x: 0.00014152922, y: 0.96791416, z: -0.25128046, w: 0.0005451603}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17720,8 +17720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1593555054}
   lines:
-  - My antidepressants...
-  - How could they? They know how much I rely on these.
+  - My pills...
+  - I'll need those...
   textSpeed: 0.1
 --- !u!114 &1303266603
 MonoBehaviour:
@@ -20072,8 +20072,8 @@ MonoBehaviour:
   textComponent: {fileID: 5765090}
   lines:
   - The door is locked...
-  - I heard that a new counselor will be here, right in this library. Maybe I should
-    pay a visit tomorrow.
+  - 'I heard that a new counselor will be here in this library. '
+  - Maybe I should pay a visit tomorrow.
   textSpeed: 0.1
 --- !u!114 &1463612897
 MonoBehaviour:
@@ -21056,7 +21056,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 132659099}
   lines:
-  - Is that... my diary? How did it end up here?
+  - Is that... my diary?
+  - Hope they haven't looked inside.
   textSpeed: 0.1
 --- !u!114 &1549757667
 MonoBehaviour:
@@ -21214,8 +21215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1163062076}
   lines:
-  - Finally finished the work. It's very late now.
-  - I hope they don't leave my stuff everywhere
+  - Finally finished my work today.
+  - It's kinda late. I should take my stuff and go home.
   textSpeed: 0.1
 --- !u!114 &1551894623
 MonoBehaviour:
@@ -22342,9 +22343,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 722989215}
   lines:
-  - Not again... Why do they keep doing this to me?
-  - Why am I always the target of their jokes?
-  - They always hide my things in different classrooms, I need to get my stuff back.
+  - Oh Come on! These naughty boys!
+  - They should know better than doing mischiefs.
+  - They always hide my stuff  in different classrooms, I should get them back.
   textSpeed: 0.1
 --- !u!114 &1619060007
 MonoBehaviour:
